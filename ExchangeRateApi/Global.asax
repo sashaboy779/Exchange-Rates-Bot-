@@ -1,0 +1,1 @@
+﻿<%@ Application Codebehind="Global.asax.cs" Inherits="ExchangeRateApi.MvcApplication" Language="C#" %>
