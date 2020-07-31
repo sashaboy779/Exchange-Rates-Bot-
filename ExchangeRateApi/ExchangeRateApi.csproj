@@ -43,6 +43,22 @@
     </PropertyGroup>
     <ItemGroup>
         <Reference Include="Microsoft.CSharp" />
+        <Reference Include="Ninject, Version=3.3.4.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7">
+          <HintPath>..\packages\Ninject.3.3.4\lib\net45\Ninject.dll</HintPath>
+          <Private>True</Private>
+        </Reference>
+        <Reference Include="Ninject.Web.Common, Version=3.3.2.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7">
+          <HintPath>..\packages\Ninject.Web.Common.3.3.2\lib\net45\Ninject.Web.Common.dll</HintPath>
+          <Private>True</Private>
+        </Reference>
+        <Reference Include="Ninject.Web.Common.WebHost, Version=3.3.2.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7">
+          <HintPath>..\packages\Ninject.Web.Common.WebHost.3.3.2\lib\net45\Ninject.Web.Common.WebHost.dll</HintPath>
+          <Private>True</Private>
+        </Reference>
+        <Reference Include="Ninject.Web.WebApi, Version=3.3.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7">
+          <HintPath>..\packages\Ninject.Web.WebApi.3.3.0\lib\net45\Ninject.Web.WebApi.dll</HintPath>
+          <Private>True</Private>
+        </Reference>
         <Reference Include="System" />
         <Reference Include="System.Data" />
         <Reference Include="System.Drawing" />
@@ -111,6 +127,10 @@
             <Private>True</Private>
             <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
         </Reference>
+        <Reference Include="WebActivatorEx, Version=2.0.0.0, Culture=neutral, PublicKeyToken=7b26dc2a43f6a0d4">
+          <HintPath>..\packages\WebActivatorEx.2.2.0\lib\net40\WebActivatorEx.dll</HintPath>
+          <Private>True</Private>
+        </Reference>
         <Reference Include="WebGrease, Version=1.5.2.14234, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
           <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
           <Private>True</Private>
@@ -122,6 +142,7 @@
         </Reference>
     </ItemGroup>
     <ItemGroup>
+        <Compile Include="App_Start\NinjectWebCommon.cs" />
         <Compile Include="Global.asax.cs">
             <DependentUpon>Global.asax</DependentUpon>
         </Compile>
@@ -138,7 +159,6 @@
         </Content>
     </ItemGroup>
     <ItemGroup>
-        <Folder Include="App_Start" />
         <Folder Include="Controllers" />
         <Folder Include="Models" />
     </ItemGroup>
