@@ -152,9 +152,11 @@
     </ItemGroup>
     <ItemGroup>
         <Compile Include="App_Start\NinjectWebCommon.cs" />
+        <Compile Include="DataAccess\ExchangeRateBotContext.cs" />
         <Compile Include="Global.asax.cs">
             <DependentUpon>Global.asax</DependentUpon>
         </Compile>
+        <Compile Include="Infrastructure\Constants\AppSettings.cs" />
         <Compile Include="Models\PrivatBankApi\CurrencyModel.cs" />
         <Compile Include="Models\PrivatBankApi\ExchangeRate.cs" />
         <Compile Include="Models\PrivatBankApi\ExchangeRateModel.cs" />
@@ -175,7 +177,6 @@
     </ItemGroup>
     <ItemGroup>
         <Folder Include="Controllers" />
-        <Folder Include="DataAccess" />
     </ItemGroup>
     <ItemGroup>
         <None Include="packages.config" />

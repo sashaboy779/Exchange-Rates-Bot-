@@ -1,0 +1,23 @@
+﻿using System.Data.Entity;
+using ExchangeRateApi.Infrastructure.Constants;
+using ExchangeRateApi.Models.User;
+
+namespace ExchangeRateApi.DataAccess
+{
+    public class ExchangeRateBotContext : DbContext
+    {
+        public DbSet<User> Users { get; set; }
+        public DbSet<UserCurrency> UserCurrencies { get; set; }
+
+        public ExchangeRateBotContext(string connectionStringName) : base(connectionStringName)
+        {
+        }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<User>()
+                .HasMany(x => x.Currencies)
+                .WithMany(x => x.Users);
+        }
+    }
+}
