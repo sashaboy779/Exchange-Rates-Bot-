@@ -1,4 +1,6 @@
-﻿[assembly: WebActivatorEx.PreApplicationStartMethod(typeof(ExchangeRateApi.NinjectWebCommon), "Start")]
+﻿using ExchangeRateApi.Modules;
+
+[assembly: WebActivatorEx.PreApplicationStartMethod(typeof(ExchangeRateApi.NinjectWebCommon), "Start")]
 [assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(ExchangeRateApi.NinjectWebCommon), "Stop")]
 
 namespace ExchangeRateApi
@@ -61,6 +63,7 @@ namespace ExchangeRateApi
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
+            kernel.Load<RepositoryModule>();
         }
     }
 }
