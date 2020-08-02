@@ -1,5 +1,5 @@
 ﻿using ExchangeRateApi.DataAccess;
-using ExchangeRateApi.DataAccess.Repositories;
+using ExchangeRateApi.DataAccess.Repository;
 using ExchangeRateApi.Infrastructure.Constants;
 using ExchangeRateApi.Models.User;
 using Ninject.Modules;
