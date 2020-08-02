@@ -153,6 +153,8 @@
   <ItemGroup>
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="DataAccess\ExchangeRateBotContext.cs" />
+    <Compile Include="DataAccess\Repositories\GenericRepository.cs" />
+    <Compile Include="DataAccess\Repositories\IGenericRepository.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -168,6 +170,7 @@
     <Compile Include="Models\User\Currencies.cs" />
     <Compile Include="Models\User\User.cs" />
     <Compile Include="Models\User\UserCurrency.cs" />
+    <Compile Include="Modules\RepositoryModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
