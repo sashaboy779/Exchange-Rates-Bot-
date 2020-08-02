@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 
-namespace ExchangeRateApi.DataAccess.Repositories
+namespace ExchangeRateApi.DataAccess.Repository
 {
     public interface IGenericRepository<TEntity> where TEntity : class
     {

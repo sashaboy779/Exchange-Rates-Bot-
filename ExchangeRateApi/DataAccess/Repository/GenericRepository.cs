@@ -4,12 +4,12 @@ using System.Data.Entity;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 
-namespace ExchangeRateApi.DataAccess.Repositories
+namespace ExchangeRateApi.DataAccess.Repository
 {
     public class GenericRepository<TEntity> : IGenericRepository<TEntity> where TEntity : class
     {
-        protected readonly ExchangeRateBotContext context;
-        protected readonly DbSet<TEntity> dbSet;
+        private readonly ExchangeRateBotContext context;
+        private readonly DbSet<TEntity> dbSet;
 
         public GenericRepository(ExchangeRateBotContext context)
         {
