@@ -168,6 +168,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Infrastructure\Bot\Bot.cs" />
+    <Compile Include="Infrastructure\Bot\IBot.cs" />
     <Compile Include="Infrastructure\Constants\AppSettings.cs" />
     <Compile Include="Migrations\202008012025231_Initialize.cs" />
     <Compile Include="Migrations\202008012025231_Initialize.designer.cs">
