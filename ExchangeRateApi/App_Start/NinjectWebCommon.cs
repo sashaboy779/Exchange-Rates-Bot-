@@ -1,4 +1,5 @@
-﻿using ExchangeRateApi.Modules;
+﻿using ExchangeRateApi.Infrastructure.Bot;
+using ExchangeRateApi.Modules;
 
 [assembly: WebActivatorEx.PreApplicationStartMethod(typeof(ExchangeRateApi.NinjectWebCommon), "Start")]
 [assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(ExchangeRateApi.NinjectWebCommon), "Stop")]
@@ -63,6 +64,8 @@ namespace ExchangeRateApi
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
+            kernel.Bind<IBot>().To<Bot>().InRequestScope();
+
             kernel.Load<RepositoryModule>();
         }
     }
