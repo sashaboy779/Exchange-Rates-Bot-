@@ -23,6 +23,7 @@
     <IISExpressUseClassicPipelineMode />
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp />
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -83,6 +84,7 @@
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.7\lib\net45\System.Net.Http.Formatting.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Runtime.Caching" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -173,6 +175,7 @@
     <Compile Include="Infrastructure\Bot\IBot.cs" />
     <Compile Include="Infrastructure\Constants\AppSettings.cs" />
     <Compile Include="Infrastructure\Constants\ServiceSettings.cs" />
+    <Compile Include="Infrastructure\Exceptions\ExchangeRateNotFoundException.cs" />
     <Compile Include="Migrations\202008012025231_Initialize.cs" />
     <Compile Include="Migrations\202008012025231_Initialize.designer.cs">
       <DependentUpon>202008012025231_Initialize.cs</DependentUpon>
@@ -217,6 +220,7 @@
     </Compile>
     <Compile Include="Services\ApiService.cs" />
     <Compile Include="Services\CurrenciesService.cs" />
+    <Compile Include="Services\ExchangeRateService.cs" />
     <Compile Include="Services\Interfaces\IApiService.cs" />
     <Compile Include="Services\Interfaces\ICurrenciesService.cs" />
     <Compile Include="Services\Interfaces\IExchangeRateService.cs" />
