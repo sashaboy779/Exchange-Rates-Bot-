@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
   <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
@@ -23,6 +23,7 @@
     <IISExpressUseClassicPipelineMode />
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp />
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -83,6 +84,7 @@
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.7\lib\net45\System.Net.Http.Formatting.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Runtime.Caching" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -172,6 +174,8 @@
     <Compile Include="Infrastructure\Bot\Bot.cs" />
     <Compile Include="Infrastructure\Bot\IBot.cs" />
     <Compile Include="Infrastructure\Constants\AppSettings.cs" />
+    <Compile Include="Infrastructure\Constants\ServiceSettings.cs" />
+    <Compile Include="Infrastructure\Exceptions\ExchangeRateNotFoundException.cs" />
     <Compile Include="Migrations\202008012025231_Initialize.cs" />
     <Compile Include="Migrations\202008012025231_Initialize.designer.cs">
       <DependentUpon>202008012025231_Initialize.cs</DependentUpon>
@@ -181,13 +185,50 @@
     <Compile Include="Models\PrivatBankApi\ExchangeRate.cs" />
     <Compile Include="Models\PrivatBankApi\ExchangeRateModel.cs" />
     <Compile Include="Models\TelegramBot\Commands\Command.cs" />
+    <Compile Include="Models\TelegramBot\FilteredExchangeRates.cs" />
     <Compile Include="Models\TelegramBot\Handlers\CallbackQuery\CallbackQueryHandler.cs" />
     <Compile Include="Models\TelegramBot\Handlers\Handler.cs" />
     <Compile Include="Models\User\Currencies.cs" />
     <Compile Include="Models\User\User.cs" />
     <Compile Include="Models\User\UserCurrency.cs" />
     <Compile Include="Modules\RepositoryModule.cs" />
+    <Compile Include="Modules\ServiceModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources\CurrencyCodes.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CurrencyCodes.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\CurrencyCodes.uk.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CurrencyCodes.uk.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Languages.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Languages.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Messages.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Messages.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Messages.uk.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Messages.uk.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Services\ApiService.cs" />
+    <Compile Include="Services\CurrenciesService.cs" />
+    <Compile Include="Services\ExchangeRateService.cs" />
+    <Compile Include="Services\Interfaces\IApiService.cs" />
+    <Compile Include="Services\Interfaces\ICurrenciesService.cs" />
+    <Compile Include="Services\Interfaces\IExchangeRateService.cs" />
+    <Compile Include="Services\Interfaces\ILocalizationService.cs" />
+    <Compile Include="Services\Interfaces\IUserService.cs" />
+    <Compile Include="Services\LocalizationService.cs" />
+    <Compile Include="Services\UserService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
@@ -206,10 +247,35 @@
     <EmbeddedResource Include="Migrations\202008012025231_Initialize.resx">
       <DependentUpon>202008012025231_Initialize.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CurrencyCodes.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>CurrencyCodes.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>ExchangeRateApi.Services</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CurrencyCodes.uk.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>CurrencyCodes.uk.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>ExchangeRateApi.Services</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Languages.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Languages.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>ExchangeRateApi.Resources</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Messages.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Messages.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>ExchangeRateApi.Resources</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Messages.uk.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Messages.uk.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>ExchangeRateApi.Resources</CustomToolNamespace>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Models\TelegramBot\Commands\Hidden" />
-    <Folder Include="Models\TelegramBot\Commands\User" />
+    <Folder Include="Models\TelegramBot\Commands\Hidden\" />
+    <Folder Include="Models\TelegramBot\Commands\User\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

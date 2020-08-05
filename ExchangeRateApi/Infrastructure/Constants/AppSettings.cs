@@ -7,6 +7,9 @@ namespace ExchangeRateApi.Infrastructure.Constants
         public static string DatabaseName => "BotDb";
         public static string BotUrl => GetValue("BotUrl");
         public static string BotKey => GetValue("BotKey");
+        public static string SupportedCultures => "en,uk";
+        public static string DefaultCulture => "en";
+
         public const string WebhookUriPart = "api/message/update";
 
         private static string GetValue(string key)
