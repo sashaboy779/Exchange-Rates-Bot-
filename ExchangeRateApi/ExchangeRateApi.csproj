@@ -200,6 +200,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CurrencyCodes.uk.resx</DependentUpon>
     </Compile>
+    <Compile Include="Resources\Languages.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Languages.resx</DependentUpon>
+    </Compile>
     <Compile Include="Resources\Messages.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -217,6 +222,8 @@
     <Compile Include="Services\Interfaces\IExchangeRateService.cs" />
     <Compile Include="Services\Interfaces\ILocalizationService.cs" />
     <Compile Include="Services\Interfaces\IUserService.cs" />
+    <Compile Include="Services\LocalizationService.cs" />
+    <Compile Include="Services\UserService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
@@ -244,6 +251,11 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>CurrencyCodes.uk.Designer.cs</LastGenOutput>
       <CustomToolNamespace>ExchangeRateApi.Services</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Languages.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Languages.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>ExchangeRateApi.Resources</CustomToolNamespace>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Messages.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
