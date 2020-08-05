@@ -192,6 +192,7 @@
     <Compile Include="Models\User\User.cs" />
     <Compile Include="Models\User\UserCurrency.cs" />
     <Compile Include="Modules\RepositoryModule.cs" />
+    <Compile Include="Modules\ServiceModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources\CurrencyCodes.Designer.cs">
       <AutoGen>True</AutoGen>
