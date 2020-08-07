@@ -2,6 +2,7 @@
 using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Routing;
+using ExchangeRateApi.Infrastructure;
 using ExchangeRateApi.Infrastructure.Bot;
 
 namespace ExchangeRateApi
@@ -17,6 +18,10 @@ namespace ExchangeRateApi
             Bot.SetWebhook();
         }
         
-        // TODO Add Global exception logging
+        protected void Application_Error()
+        {
+            var exception = Server.GetLastError();
+            Logger.Log.Fatal(exception.Message, exception);
+        }
     }
 }
