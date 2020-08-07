@@ -16,7 +16,7 @@ namespace ExchangeRateApi
                 defaults: new { id = RouteParameter.Optional }
             );
 
-            // TODO Add Log4NetExceptionLogger
+            config.Services.Add(typeof(IExceptionLogger), new Log4NetExceptionLogger());
             config.Services.Replace(typeof(IExceptionHandler), new GlobalExceptionHandler());
         }
     }

@@ -52,6 +52,10 @@
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a">
+      <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed">
       <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -177,6 +181,8 @@
     <Compile Include="Infrastructure\Constants\ServiceSettings.cs" />
     <Compile Include="Infrastructure\Exceptions\ExchangeRateNotFoundException.cs" />
     <Compile Include="Infrastructure\Exceptions\GlobalExceptionHandler.cs" />
+    <Compile Include="Infrastructure\Exceptions\Log4NetExceptionLogger.cs" />
+    <Compile Include="Infrastructure\Logger.cs" />
     <Compile Include="Migrations\202008012025231_Initialize.cs" />
     <Compile Include="Migrations\202008012025231_Initialize.designer.cs">
       <DependentUpon>202008012025231_Initialize.cs</DependentUpon>

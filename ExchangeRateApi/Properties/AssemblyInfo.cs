@@ -1,6 +1,7 @@
 ﻿using System.Reflection;
 using System.Runtime.InteropServices;
 
+[assembly: log4net.Config.XmlConfigurator(ConfigFile = "Web.config")]
 [assembly: AssemblyTitle("ExchangeRateApi")]
 [assembly: AssemblyDescription("A Telegram bot that provide an exchange rate information for selected date")]
 [assembly: AssemblyConfiguration("")]

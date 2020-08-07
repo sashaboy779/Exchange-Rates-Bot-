@@ -11,6 +11,7 @@ namespace ExchangeRateApi.Infrastructure.Constants
         public static string DefaultCulture => "en";
 
         public const string WebhookUriPart = "api/message/update";
+        public static string LoggerName => "LOGGER";
 
         private static string GetValue(string key)
         {
