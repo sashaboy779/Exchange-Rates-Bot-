@@ -1,5 +1,6 @@
 ﻿using System.Threading.Tasks;
 using ExchangeRateApi.DataAccess.Repository;
+using ExchangeRateApi.Infrastructure;
 using ExchangeRateApi.Models.User;
 
 namespace ExchangeRateApi.DataAccess.UnitOfWork
@@ -25,9 +26,9 @@ namespace ExchangeRateApi.DataAccess.UnitOfWork
             {
                 await context.SaveChangesAsync();
             }
-            catch (System.Exception)
+            catch (System.Exception e)
             {
-                // TODO Log
+                Logger.Log.Info(e.Message, e);
             }
         }
 
