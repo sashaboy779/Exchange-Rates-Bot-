@@ -120,6 +120,9 @@
   <data name="AllCurrencies" xml:space="preserve">
     <value>Я підтримую такі валюти 💰</value>
   </data>
+  <data name="ErrorOcurred" xml:space="preserve">
+    <value>Упс... Щось пішло не так</value>
+  </data>
   <data name="FormattedCurrencyInfo" xml:space="preserve">
     <value>*{0}* - _{1}_</value>
   </data>

@@ -1,4 +1,6 @@
 ﻿using System.Web.Http;
+using System.Web.Http.ExceptionHandling;
+using ExchangeRateApi.Infrastructure.Exceptions;
 
 namespace ExchangeRateApi
 {
@@ -15,7 +17,7 @@ namespace ExchangeRateApi
             );
 
             // TODO Add Log4NetExceptionLogger
-            // TODO Add GlobalExceptionHandler
+            config.Services.Replace(typeof(IExceptionHandler), new GlobalExceptionHandler());
         }
     }
 }

@@ -70,6 +70,15 @@ namespace ExchangeRateApi.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Oops! Sorry! Something went wrong.
+        /// </summary>
+        public static string ErrorOcurred {
+            get {
+                return ResourceManager.GetString("ErrorOcurred", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to *{0}* - _{1}_.
         /// </summary>
         public static string FormattedCurrencyInfo {
