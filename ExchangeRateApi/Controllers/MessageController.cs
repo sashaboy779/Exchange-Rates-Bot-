@@ -1,13 +1,13 @@
-﻿using System;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using System.Web.Http;
-using ExchangeRateApi.Infrastructure.Bot;
-using ExchangeRateApi.Infrastructure.Bot.Commands;
-using ExchangeRateApi.Infrastructure.Constants;
+using Telegram.Bot.Types;
+using System;
+using Telegram.Bot.Types.Enums;
 using log4net;
 using Telegram.Bot;
-using Telegram.Bot.Types;
-using Telegram.Bot.Types.Enums;
+using ExchangeRateApi.Infrastructure.Bot;
+using ExchangeRateApi.Infrastructure.Constants;
+using ExchangeRateApi.Infrastructure.Bot.Commands;
 
 namespace ExchangeRateApi.Controllers
 {
@@ -49,7 +49,7 @@ namespace ExchangeRateApi.Controllers
 
             if (message.Text == null)
             {
-                // TODO Add tutorial command
+                command = bot.GetUserCommand(CommandsList.Tutorial);
             }
             else if (DateTime.TryParse(message.Text, out _))
             {

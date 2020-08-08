@@ -56,6 +56,7 @@ namespace ExchangeRateApi.Infrastructure.Bot
         {
             var client = new TelegramBotClient(AppSettings.BotKey);
             var webhook = string.Format(AppSettings.BotUrl, AppSettings.WebhookUriPart);
+            //_ = client.DeleteWebhookAsync();
             _ = client.SetWebhookAsync(webhook, maxConnections: 40);
         }
 
@@ -63,7 +64,8 @@ namespace ExchangeRateApi.Infrastructure.Bot
         {
             userCommands = new List<Command>
             {
-                new Start(userService)
+                new Start(userService),
+                new Tutorial()
             };
         }
 

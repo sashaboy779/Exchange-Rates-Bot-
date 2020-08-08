@@ -4,7 +4,7 @@ namespace ExchangeRateApi.Infrastructure.Constants
 {
     public static class AppSettings
     {
-        public static string DatabaseName => "BotDb";
+        public static string DatabaseName => "TelegramBotDb";
         public static string BotUrl => GetValue("BotUrl");
         public static string BotKey => GetValue("BotKey");
         public static string SupportedCultures => "en,uk";

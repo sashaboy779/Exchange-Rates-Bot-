@@ -17,7 +17,7 @@
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
-    <IISExpressSSLPort></IISExpressSSLPort>
+    <IISExpressSSLPort>44349</IISExpressSSLPort>
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
@@ -162,6 +162,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Start\NinjectResolver.cs" />
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
@@ -177,6 +178,7 @@
     </Compile>
     <Compile Include="Infrastructure\Bot\Bot.cs" />
     <Compile Include="Infrastructure\Bot\Commands\Command.cs" />
+    <Compile Include="Infrastructure\Bot\Commands\User\Tutorial.cs" />
     <Compile Include="Infrastructure\Bot\Commands\User\Start.cs" />
     <Compile Include="Infrastructure\Bot\Handlers\CallbackQuery\CallbackQueryHandler.cs" />
     <Compile Include="Infrastructure\Bot\Handlers\Handler.cs" />
@@ -322,7 +324,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>5000</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:5000/</IISUrl>
+          <IISUrl>https://localhost:44349/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
