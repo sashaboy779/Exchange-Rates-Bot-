@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
 using Telegram.Bot;
 
-namespace ExchangeRateApi.Models.TelegramBot.Handlers.CallbackQuery
+namespace ExchangeRateApi.Infrastructure.Bot.Handlers.CallbackQuery
 {
     public abstract class CallbackQueryHandler : Handler
     {

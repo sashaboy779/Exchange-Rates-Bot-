@@ -1,4 +1,4 @@
-﻿namespace ExchangeRateApi.Models.TelegramBot.Handlers
+﻿namespace ExchangeRateApi.Infrastructure.Bot.Handlers
 {
     public abstract class Handler
     {

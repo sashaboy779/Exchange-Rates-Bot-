@@ -1,8 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using ExchangeRateApi.Infrastructure.Bot.Commands;
+using ExchangeRateApi.Infrastructure.Bot.Commands.User;
+using ExchangeRateApi.Infrastructure.Bot.Handlers.CallbackQuery;
 using ExchangeRateApi.Infrastructure.Constants;
-using ExchangeRateApi.Models.TelegramBot.Commands;
-using ExchangeRateApi.Models.TelegramBot.Handlers.CallbackQuery;
+using ExchangeRateApi.Services.Interfaces;
 using Telegram.Bot;
 
 namespace ExchangeRateApi.Infrastructure.Bot
@@ -15,9 +17,9 @@ namespace ExchangeRateApi.Infrastructure.Bot
         private List<Command> hiddenCommands;
         private List<CallbackQueryHandler> callbackQueryHandlersList;
 
-        public Bot()
+        public Bot(IUserService userService)
         {
-            InitializeUserCommands();
+            InitializeUserCommands(userService);
             InitializeCallbackQueryHandlers();
             InitializeHiddenCommands();
 
@@ -28,7 +30,14 @@ namespace ExchangeRateApi.Infrastructure.Bot
         {
             Command command = null;
 
-            // TODO Add logic
+            if (identifier != "/")
+            {
+                command = userCommands.SingleOrDefault(x => x.Identifier == identifier);
+            }
+            if (command == null)
+            {
+                // TODO Add Error command or IncorrectDateFormat command
+            }
 
             return command;
         }
@@ -50,11 +59,11 @@ namespace ExchangeRateApi.Infrastructure.Bot
             _ = client.SetWebhookAsync(webhook, maxConnections: 40);
         }
 
-        private void InitializeUserCommands()
+        private void InitializeUserCommands(IUserService userService)
         {
             userCommands = new List<Command>
             {
-                // add commands
+                new Start(userService)
             };
         }
 
