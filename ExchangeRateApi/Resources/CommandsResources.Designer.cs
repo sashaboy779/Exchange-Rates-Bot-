@@ -61,6 +61,24 @@ namespace ExchangeRateApi {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ✅ {0}.
+        /// </summary>
+        public static string CheckMark {
+            get {
+                return ResourceManager.GetString("CheckMark", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select or remove currency from favourites.
+        /// </summary>
+        public static string SetCurrencyAbout {
+            get {
+                return ResourceManager.GetString("SetCurrencyAbout", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to I am a bot that returns the exchange rate on the selected date (in relation to *UAH*) for the last 4 years
         ///
         ///*How to see the exchange rate?*

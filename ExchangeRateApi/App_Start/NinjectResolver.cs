@@ -1,8 +1,8 @@
-﻿using Ninject;
+﻿using System.Web.Http.Dependencies;
+using Ninject;
 using Ninject.Web.WebApi;
-using System.Web.Http.Dependencies;
 
-namespace ExchangeRateApi.App_Start
+namespace ExchangeRateApi
 {
     public class NinjectResolver : NinjectDependencyScope, IDependencyResolver
     {

@@ -178,11 +178,13 @@
     </Compile>
     <Compile Include="Infrastructure\Bot\Bot.cs" />
     <Compile Include="Infrastructure\Bot\Commands\Command.cs" />
+    <Compile Include="Infrastructure\Bot\Commands\User\SetCurrency.cs" />
     <Compile Include="Infrastructure\Bot\Commands\User\Tutorial.cs" />
     <Compile Include="Infrastructure\Bot\Commands\User\Start.cs" />
     <Compile Include="Infrastructure\Bot\Handlers\CallbackQuery\CallbackQueryHandler.cs" />
     <Compile Include="Infrastructure\Bot\Handlers\Handler.cs" />
     <Compile Include="Infrastructure\Bot\IBot.cs" />
+    <Compile Include="Infrastructure\Bot\InlineKeyboardGenerator.cs" />
     <Compile Include="Infrastructure\Constants\AppSettings.cs" />
     <Compile Include="Infrastructure\Constants\CommandsList.cs" />
     <Compile Include="Infrastructure\Constants\ServiceSettings.cs" />

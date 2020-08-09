@@ -117,6 +117,12 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="CheckMark" xml:space="preserve">
+    <value>✅ {0}</value>
+  </data>
+  <data name="SetCurrencyAbout" xml:space="preserve">
+    <value>Select or remove currency from favourites</value>
+  </data>
   <data name="Tutorial" xml:space="preserve">
     <value>I am a bot that returns the exchange rate on the selected date (in relation to *UAH*) for the last 4 years
 

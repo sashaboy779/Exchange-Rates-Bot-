@@ -65,7 +65,8 @@ namespace ExchangeRateApi.Infrastructure.Bot
             userCommands = new List<Command>
             {
                 new Start(userService),
-                new Tutorial()
+                new Tutorial(),
+                new SetCurrency(userService)
             };
         }
 
