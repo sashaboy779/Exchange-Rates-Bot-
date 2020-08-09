@@ -16,7 +16,7 @@ namespace ExchangeRateApi.DataAccess
 
         public ExchangeRateBotContext(string connectionStringName) : base(connectionStringName)
         {
-            Database.SetInitializer(new MigrateDatabaseToLatestVersion<ExchangeRateBotContext, Configuration>());
+            Database.SetInitializer(new DatabaseInitializer());
         }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
