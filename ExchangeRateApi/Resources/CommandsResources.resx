@@ -120,6 +120,12 @@
   <data name="CheckMark" xml:space="preserve">
     <value>✅ {0}</value>
   </data>
+  <data name="CurrencyAdded" xml:space="preserve">
+    <value>{0} added to favorites</value>
+  </data>
+  <data name="CurrencyRemoved" xml:space="preserve">
+    <value>{0} removed from favorites</value>
+  </data>
   <data name="SetCurrencyAbout" xml:space="preserve">
     <value>Select or remove currency from favourites</value>
   </data>

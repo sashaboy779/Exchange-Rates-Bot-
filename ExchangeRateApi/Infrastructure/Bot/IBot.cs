@@ -1,5 +1,5 @@
 ﻿using ExchangeRateApi.Infrastructure.Bot.Commands;
-using ExchangeRateApi.Infrastructure.Bot.Handlers.CallbackQuery;
+using ExchangeRateApi.Infrastructure.Bot.Handlers.CallbackQueries;
 using Telegram.Bot;
 
 namespace ExchangeRateApi.Infrastructure.Bot

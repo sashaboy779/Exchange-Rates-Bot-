@@ -168,6 +168,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MessageController.cs" />
+    <Compile Include="DataAccess\DatabaseInitializer.cs" />
     <Compile Include="DataAccess\ExchangeRateBotContext.cs" />
     <Compile Include="DataAccess\Repository\GenericRepository.cs" />
     <Compile Include="DataAccess\Repository\IGenericRepository.cs" />
@@ -181,7 +182,8 @@
     <Compile Include="Infrastructure\Bot\Commands\User\SetCurrency.cs" />
     <Compile Include="Infrastructure\Bot\Commands\User\Tutorial.cs" />
     <Compile Include="Infrastructure\Bot\Commands\User\Start.cs" />
-    <Compile Include="Infrastructure\Bot\Handlers\CallbackQuery\CallbackQueryHandler.cs" />
+    <Compile Include="Infrastructure\Bot\Handlers\CallbackQueries\CallbackQueryHandler.cs" />
+    <Compile Include="Infrastructure\Bot\Handlers\CallbackQueries\CurrencyKeyboardHandler.cs" />
     <Compile Include="Infrastructure\Bot\Handlers\Handler.cs" />
     <Compile Include="Infrastructure\Bot\IBot.cs" />
     <Compile Include="Infrastructure\Bot\InlineKeyboardGenerator.cs" />

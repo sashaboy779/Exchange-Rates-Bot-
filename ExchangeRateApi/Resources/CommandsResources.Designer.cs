@@ -70,6 +70,24 @@ namespace ExchangeRateApi {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to {0} added to favorites.
+        /// </summary>
+        public static string CurrencyAdded {
+            get {
+                return ResourceManager.GetString("CurrencyAdded", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} removed from favorites.
+        /// </summary>
+        public static string CurrencyRemoved {
+            get {
+                return ResourceManager.GetString("CurrencyRemoved", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Select or remove currency from favourites.
         /// </summary>
         public static string SetCurrencyAbout {

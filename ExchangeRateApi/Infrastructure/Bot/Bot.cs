@@ -2,7 +2,7 @@
 using System.Linq;
 using ExchangeRateApi.Infrastructure.Bot.Commands;
 using ExchangeRateApi.Infrastructure.Bot.Commands.User;
-using ExchangeRateApi.Infrastructure.Bot.Handlers.CallbackQuery;
+using ExchangeRateApi.Infrastructure.Bot.Handlers.CallbackQueries;
 using ExchangeRateApi.Infrastructure.Constants;
 using ExchangeRateApi.Services.Interfaces;
 using Telegram.Bot;
@@ -20,7 +20,7 @@ namespace ExchangeRateApi.Infrastructure.Bot
         public Bot(IUserService userService)
         {
             InitializeUserCommands(userService);
-            InitializeCallbackQueryHandlers();
+            InitializeCallbackQueryHandlers(userService);
             InitializeHiddenCommands();
 
             Client = new TelegramBotClient(AppSettings.BotKey);
@@ -70,11 +70,11 @@ namespace ExchangeRateApi.Infrastructure.Bot
             };
         }
 
-        private void InitializeCallbackQueryHandlers()
+        private void InitializeCallbackQueryHandlers(IUserService userService)
         {
             callbackQueryHandlersList = new List<CallbackQueryHandler>
             {
-                // add callback query handlers
+                new CurrencyKeyboardHandler(userService)
             };
         }
 

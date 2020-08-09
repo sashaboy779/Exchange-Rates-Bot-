@@ -32,6 +32,9 @@ namespace ExchangeRateApi.Controllers
                     case UpdateType.Message:
                         await HadleMessageAsync(update.Message, client);
                         break;
+                    case UpdateType.CallbackQuery:
+                        await HandleCallbackQueryAsync(update, client);
+                        break;
                     default:
                         break;
                 }
@@ -61,6 +64,13 @@ namespace ExchangeRateApi.Controllers
             }
 
             await command.Execute(message, client);
+        }
+        
+        private async Task HandleCallbackQueryAsync(Update update, TelegramBotClient client)
+        {
+            var handler = bot.GetCallbackQueryHandler(update.CallbackQuery.Message.Text);
+            await handler.Handle(client, update.CallbackQuery);
+            // TODO Add old keyboard handler
         }
     }
 }
