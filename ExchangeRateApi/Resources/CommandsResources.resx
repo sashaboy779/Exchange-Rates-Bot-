@@ -121,6 +121,9 @@
     <value>🏦 NBU - National Bank of Ukraine
 🏦 PB - PrivatBank</value>
   </data>
+  <data name="AllCurrencies" xml:space="preserve">
+    <value>I support the following currencies 💰</value>
+  </data>
   <data name="CheckMark" xml:space="preserve">
     <value>✅ {0}</value>
   </data>

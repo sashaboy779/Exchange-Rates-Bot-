@@ -18,9 +18,10 @@ namespace ExchangeRateApi.Infrastructure.Bot
         private List<Command> hiddenCommands;
         private List<CallbackQueryHandler> callbackQueryHandlersList;
 
-        public Bot(IUserService userService, IExchangeRateService exchangeRateService)
+        public Bot(IUserService userService, IExchangeRateService exchangeRateService, 
+            ICurrenciesService currenciesService)
         {
-            InitializeUserCommands(userService);
+            InitializeUserCommands(userService, currenciesService);
             InitializeCallbackQueryHandlers(userService);
             InitializeHiddenCommands(exchangeRateService);
 
@@ -60,14 +61,15 @@ namespace ExchangeRateApi.Infrastructure.Bot
             _ = client.SetWebhookAsync(webhook, maxConnections: 40);
         }
 
-        private void InitializeUserCommands(IUserService userService)
+        private void InitializeUserCommands(IUserService userService, ICurrenciesService currenciesService)
         {
             userCommands = new List<Command>
             {
                 new Start(userService),
                 new Tutorial(),
                 new SetCurrency(userService),
-                new Help()
+                new Help(),
+                new Currencies(currenciesService)
             };
         }
 

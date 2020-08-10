@@ -7,5 +7,6 @@
         public static string SetCurrency => "/setcurrency";
         public static string Rate => "/rate";
         public static string Help => "/help";
+        public static string Currencies => "/currencies";
     }
 }

@@ -71,6 +71,15 @@ namespace ExchangeRateApi {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to I support the following currencies 💰.
+        /// </summary>
+        public static string AllCurrencies {
+            get {
+                return ResourceManager.GetString("AllCurrencies", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ✅ {0}.
         /// </summary>
         public static string CheckMark {
