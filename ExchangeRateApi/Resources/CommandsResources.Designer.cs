@@ -61,6 +61,16 @@ namespace ExchangeRateApi {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 🏦 NBU - National Bank of Ukraine
+        ///🏦 PB - PrivatBank.
+        /// </summary>
+        public static string AboutBank {
+            get {
+                return ResourceManager.GetString("AboutBank", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ✅ {0}.
         /// </summary>
         public static string CheckMark {
@@ -79,11 +89,83 @@ namespace ExchangeRateApi {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 💱 {0}.
+        /// </summary>
+        public static string CurrencyExchangeCode {
+            get {
+                return ResourceManager.GetString("CurrencyExchangeCode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to {0} removed from favorites.
         /// </summary>
         public static string CurrencyRemoved {
             get {
                 return ResourceManager.GetString("CurrencyRemoved", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sorry, nothing was found for this date.
+        /// </summary>
+        public static string NoExchangeRateFound {
+            get {
+                return ResourceManager.GetString("NoExchangeRateFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You have not added any currencies to your favorites. This can be done with the 👉 /setcurrency command.
+        /// </summary>
+        public static string NoSelectedRates {
+            get {
+                return ResourceManager.GetString("NoSelectedRates", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to _Unfortunately it is not possible to get data on the following currencies: _.
+        /// </summary>
+        public static string NotFoundExchangeRates {
+            get {
+                return ResourceManager.GetString("NotFoundExchangeRates", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to NBU purchase rate: *{0}*.
+        /// </summary>
+        public static string PurchaseRateNBU {
+            get {
+                return ResourceManager.GetString("PurchaseRateNBU", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to PB purchase rate: *{0}*.
+        /// </summary>
+        public static string PurchaseRatePB {
+            get {
+                return ResourceManager.GetString("PurchaseRatePB", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to NBU selling rate: *{0}*.
+        /// </summary>
+        public static string SaleRateNBU {
+            get {
+                return ResourceManager.GetString("SaleRateNBU", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to PB sales rate: *{0}*.
+        /// </summary>
+        public static string SaleRatePB {
+            get {
+                return ResourceManager.GetString("SaleRatePB", resourceCulture);
             }
         }
         

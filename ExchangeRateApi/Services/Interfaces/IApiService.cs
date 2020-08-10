@@ -5,6 +5,6 @@ namespace ExchangeRateApi.Services.Interfaces
 {
     public interface IApiService
     {
-        Task<HttpResponseMessage> MakeApiCallAsync(string uri);
+        HttpResponseMessage MakeApiCall(string uri);
     }
 }

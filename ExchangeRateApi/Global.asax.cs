@@ -15,7 +15,7 @@ namespace ExchangeRateApi
             GlobalConfiguration.Configure(WebApiConfig.Register);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             
-            Bot.SetWebhook();
+            //Bot.SetWebhook();
         }
         
         protected void Application_Error()

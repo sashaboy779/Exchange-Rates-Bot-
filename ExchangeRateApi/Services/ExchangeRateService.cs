@@ -35,7 +35,7 @@ namespace ExchangeRateApi.Services
             {
                 var uri = string.Format(ServiceSettings.PrivatBankApiUri, dateString);
 
-                using var response = await apiService.MakeApiCallAsync(uri);
+                using var response = apiService.MakeApiCall(uri);
                 if (response.IsSuccessStatusCode)
                 {
                     var model = await response.Content.ReadAsAsync<ExchangeRateModel>();

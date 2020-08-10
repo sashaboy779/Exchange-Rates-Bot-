@@ -117,14 +117,42 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AboutBank" xml:space="preserve">
+    <value>🏦 NBU - National Bank of Ukraine
+🏦 PB - PrivatBank</value>
+  </data>
   <data name="CheckMark" xml:space="preserve">
     <value>✅ {0}</value>
   </data>
   <data name="CurrencyAdded" xml:space="preserve">
     <value>{0} added to favorites</value>
   </data>
+  <data name="CurrencyExchangeCode" xml:space="preserve">
+    <value>💱 {0}</value>
+  </data>
   <data name="CurrencyRemoved" xml:space="preserve">
     <value>{0} removed from favorites</value>
+  </data>
+  <data name="NoExchangeRateFound" xml:space="preserve">
+    <value>Sorry, nothing was found for this date</value>
+  </data>
+  <data name="NoSelectedRates" xml:space="preserve">
+    <value>You have not added any currencies to your favorites. This can be done with the 👉 /setcurrency command</value>
+  </data>
+  <data name="NotFoundExchangeRates" xml:space="preserve">
+    <value>_Unfortunately it is not possible to get data on the following currencies: _</value>
+  </data>
+  <data name="PurchaseRateNBU" xml:space="preserve">
+    <value>NBU purchase rate: *{0}*</value>
+  </data>
+  <data name="PurchaseRatePB" xml:space="preserve">
+    <value>PB purchase rate: *{0}*</value>
+  </data>
+  <data name="SaleRateNBU" xml:space="preserve">
+    <value>NBU selling rate: *{0}*</value>
+  </data>
+  <data name="SaleRatePB" xml:space="preserve">
+    <value>PB sales rate: *{0}*</value>
   </data>
   <data name="SetCurrencyAbout" xml:space="preserve">
     <value>Select or remove currency from favourites</value>

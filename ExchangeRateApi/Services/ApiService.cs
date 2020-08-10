@@ -1,6 +1,7 @@
 ﻿using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
+using ExchangeRateApi.Infrastructure;
 using ExchangeRateApi.Infrastructure.Constants;
 using ExchangeRateApi.Services.Interfaces;
 
@@ -18,9 +19,12 @@ namespace ExchangeRateApi.Services
                 new MediaTypeWithQualityHeaderValue(ServiceSettings.JsonMediaType));
         }
 
-        public async Task<HttpResponseMessage> MakeApiCallAsync(string uri)
+        public HttpResponseMessage MakeApiCall(string uri)
         {
-            return await ApiClient.GetAsync(uri);
+            var response = ApiClient.GetAsync(uri);
+            response.Wait();
+
+            return response.Result;
         }
     }
 }

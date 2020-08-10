@@ -35,8 +35,6 @@ namespace ExchangeRateApi.Controllers
                     case UpdateType.CallbackQuery:
                         await HandleCallbackQueryAsync(update, client);
                         break;
-                    default:
-                        break;
                 }
             }
             catch (Exception e)
@@ -56,7 +54,7 @@ namespace ExchangeRateApi.Controllers
             }
             else if (DateTime.TryParse(message.Text, out _))
             {
-                // TODO Add exchange rate by date command
+                command = bot.GetHiddenCommand(CommandsList.Rate);
             }
             else
             {
