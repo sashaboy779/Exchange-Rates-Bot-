@@ -82,7 +82,7 @@ namespace ExchangeRateApiTest.ServiceTests
             config.MockCache.Setup(x => x.Set(It.IsAny<string>(), It.IsAny<object>(),
                 It.IsAny<CacheItemPolicy>(), It.IsAny<string>()));
 
-            config.MockApi.Setup(x => x.MakeApiCall(It.IsAny<string>())).ReturnsAsync(config.
+            config.MockApi.Setup(x => x.MakeApiCall(It.IsAny<string>())).Returns(config.
                  MessageReturnedByApi);
         }
 

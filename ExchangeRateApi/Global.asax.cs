@@ -3,7 +3,6 @@ using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Routing;
 using ExchangeRateApi.Infrastructure;
-using ExchangeRateApi.Infrastructure.Bot;
 
 namespace ExchangeRateApi
 {

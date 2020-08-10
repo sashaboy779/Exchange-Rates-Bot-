@@ -1,5 +1,4 @@
-﻿using ExchangeRateApi.Models.User;
-using System.Data.Entity.Migrations;
+﻿using System.Data.Entity.Migrations;
 
 namespace ExchangeRateApi.Migrations
 {

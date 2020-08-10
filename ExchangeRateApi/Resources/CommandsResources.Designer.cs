@@ -80,6 +80,21 @@ namespace ExchangeRateApi {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to *Commands*
+        ///
+        ////start - Start conquering humanity
+        ////tutorial - Instructions on how to work with me
+        ////currencies - All currencies that I support
+        ////setcurrency - Select favorite currencies
+        ////settings - Personal bot settings.
+        /// </summary>
+        public static string CommandsList {
+            get {
+                return ResourceManager.GetString("CommandsList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to {0} added to favorites.
         /// </summary>
         public static string CurrencyAdded {

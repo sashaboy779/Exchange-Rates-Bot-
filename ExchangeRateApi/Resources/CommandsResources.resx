@@ -124,6 +124,15 @@
   <data name="CheckMark" xml:space="preserve">
     <value>✅ {0}</value>
   </data>
+  <data name="CommandsList" xml:space="preserve">
+    <value>*Commands*
+
+/start - Start conquering humanity
+/tutorial - Instructions on how to work with me
+/currencies - All currencies that I support
+/setcurrency - Select favorite currencies
+/settings - Personal bot settings</value>
+  </data>
   <data name="CurrencyAdded" xml:space="preserve">
     <value>{0} added to favorites</value>
   </data>

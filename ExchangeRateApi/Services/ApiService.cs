@@ -1,7 +1,5 @@
 ﻿using System.Net.Http;
 using System.Net.Http.Headers;
-using System.Threading.Tasks;
-using ExchangeRateApi.Infrastructure;
 using ExchangeRateApi.Infrastructure.Constants;
 using ExchangeRateApi.Services.Interfaces;
 

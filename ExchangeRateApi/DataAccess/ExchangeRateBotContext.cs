@@ -1,6 +1,5 @@
 ﻿using System.Data.Entity;
 using ExchangeRateApi.Infrastructure.Constants;
-using ExchangeRateApi.Migrations;
 using ExchangeRateApi.Models.User;
 
 namespace ExchangeRateApi.DataAccess

@@ -5,7 +5,6 @@ using ExchangeRateApi.Infrastructure.Bot.Commands.Hidden;
 using ExchangeRateApi.Infrastructure.Bot.Commands.User;
 using ExchangeRateApi.Infrastructure.Bot.Handlers.CallbackQueries;
 using ExchangeRateApi.Infrastructure.Constants;
-using ExchangeRateApi.Services;
 using ExchangeRateApi.Services.Interfaces;
 using Telegram.Bot;
 
@@ -67,7 +66,8 @@ namespace ExchangeRateApi.Infrastructure.Bot
             {
                 new Start(userService),
                 new Tutorial(),
-                new SetCurrency(userService)
+                new SetCurrency(userService),
+                new Help()
             };
         }
 
