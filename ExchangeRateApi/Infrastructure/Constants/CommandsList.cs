@@ -9,5 +9,6 @@
         public static string Help => "/help";
         public static string Currencies => "/currencies";
         public static string Error => "/error";
+        public static string IncorrectDateFormat => "/incorrectdateformat";
     }
 }

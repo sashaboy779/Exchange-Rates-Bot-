@@ -42,7 +42,10 @@ namespace ExchangeRateApi.Infrastructure.Bot
                 {
                     command = hiddenCommands.Single(x => x.Identifier == CommandsList.Error);
                 }
-                // TODO Add IncorrectDateFormat command
+                else
+                {
+                    command = hiddenCommands.Single(x => x.Identifier == CommandsList.IncorrectDateFormat);
+                }
             }
 
             return command;
@@ -90,7 +93,8 @@ namespace ExchangeRateApi.Infrastructure.Bot
             hiddenCommands = new List<Command>
             {
                 new Rate(exchangeRateService),
-                new ErrorCommand()
+                new ErrorCommand(),
+                new IncorrectDateFormat()
             };
         }
     }

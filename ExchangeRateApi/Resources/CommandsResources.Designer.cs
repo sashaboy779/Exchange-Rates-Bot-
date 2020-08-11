@@ -131,6 +131,21 @@ namespace ExchangeRateApi {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Oops... Incorrect date format
+        ///Enter the date in the following format: _month/day/year_
+        ///
+        ///*Here are some examples:*
+        ///01.02.2015 _or_ 1.2.15
+        ///01/02/2015 _or_ 1/2/15
+        ///01 02 2015 _or_ 1 2 15.
+        /// </summary>
+        public static string ErrorDateFormat {
+            get {
+                return ResourceManager.GetString("ErrorDateFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Hmm... I don&apos;t understand this command.
         ///My full list of commands is here 👉 /help.
         /// </summary>
