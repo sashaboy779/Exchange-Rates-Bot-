@@ -131,6 +131,16 @@ namespace ExchangeRateApi {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Hmm... I don&apos;t understand this command.
+        ///My full list of commands is here 👉 /help.
+        /// </summary>
+        public static string NoCommand {
+            get {
+                return ResourceManager.GetString("NoCommand", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Sorry, nothing was found for this date.
         /// </summary>
         public static string NoExchangeRateFound {

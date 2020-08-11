@@ -38,7 +38,11 @@ namespace ExchangeRateApi.Infrastructure.Bot
             }
             if (command == null)
             {
-                // TODO Add Error command or IncorrectDateFormat command
+                if (identifier.StartsWith("/"))
+                {
+                    command = hiddenCommands.Single(x => x.Identifier == CommandsList.Error);
+                }
+                // TODO Add IncorrectDateFormat command
             }
 
             return command;
@@ -85,7 +89,8 @@ namespace ExchangeRateApi.Infrastructure.Bot
         {
             hiddenCommands = new List<Command>
             {
-                new Rate(exchangeRateService)
+                new Rate(exchangeRateService),
+                new ErrorCommand()
             };
         }
     }

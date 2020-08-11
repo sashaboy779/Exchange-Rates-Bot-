@@ -145,6 +145,10 @@
   <data name="CurrencyRemoved" xml:space="preserve">
     <value>{0} removed from favorites</value>
   </data>
+  <data name="NoCommand" xml:space="preserve">
+    <value>Hmm... I don't understand this command.
+My full list of commands is here 👉 /help</value>
+  </data>
   <data name="NoExchangeRateFound" xml:space="preserve">
     <value>Sorry, nothing was found for this date</value>
   </data>

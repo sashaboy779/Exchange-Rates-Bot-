@@ -21,4 +21,4 @@ using System.Runtime.InteropServices;
 // REVISION is usually a fix for a previous minor release (no new functionality)
 // BUILD NUMBER is incremented for each latest build of a revision.
 
-[assembly: AssemblyVersion("1.10.0.0")]
+[assembly: AssemblyVersion("1.11.0.0")]
