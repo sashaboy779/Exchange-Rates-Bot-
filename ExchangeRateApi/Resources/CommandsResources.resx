@@ -119,7 +119,8 @@
   </resheader>
   <data name="AboutBank" xml:space="preserve">
     <value>🏦 NBU - National Bank of Ukraine
-🏦 PB - PrivatBank</value>
+🏦 PB - PrivatBank
+</value>
   </data>
   <data name="AllCurrencies" xml:space="preserve">
     <value>I support the following currencies 💰</value>
@@ -154,6 +155,15 @@ Enter the date in the following format: _month/day/year_
 01/02/2015 _or_ 1/2/15
 01 02 2015 _or_ 1 2 15</value>
   </data>
+  <data name="FormattedCurrencyInfo" xml:space="preserve">
+    <value>*{0}* - _{1}_</value>
+  </data>
+  <data name="LanguageChanged" xml:space="preserve">
+    <value>Language successfully changed!</value>
+  </data>
+  <data name="MainSettings" xml:space="preserve">
+    <value>What do you want to set up?</value>
+  </data>
   <data name="NoCommand" xml:space="preserve">
     <value>Hmm... I don't understand this command.
 My full list of commands is here 👉 /help</value>
@@ -167,6 +177,12 @@ My full list of commands is here 👉 /help</value>
   <data name="NotFoundExchangeRates" xml:space="preserve">
     <value>_Unfortunately it is not possible to get data on the following currencies: _</value>
   </data>
+  <data name="NotImplemented" xml:space="preserve">
+    <value>It seems this feature is not implemented yet. I will let you know when it will be done 😊</value>
+  </data>
+  <data name="OldKeyboard" xml:space="preserve">
+    <value>This keyboard is too old. Try to use new one 😉</value>
+  </data>
   <data name="PurchaseRateNBU" xml:space="preserve">
     <value>NBU purchase rate: *{0}*</value>
   </data>
@@ -179,8 +195,17 @@ My full list of commands is here 👉 /help</value>
   <data name="SaleRatePB" xml:space="preserve">
     <value>PB sales rate: *{0}*</value>
   </data>
+  <data name="SelectLanguage" xml:space="preserve">
+    <value>Select language 🌎</value>
+  </data>
   <data name="SetCurrencyAbout" xml:space="preserve">
     <value>Select or remove currency from favourites</value>
+  </data>
+  <data name="SettingsLanguage" xml:space="preserve">
+    <value>1. Language</value>
+  </data>
+  <data name="SettingsSoon" xml:space="preserve">
+    <value>Soon</value>
   </data>
   <data name="Tutorial" xml:space="preserve">
     <value>I am a bot that returns the exchange rate on the selected date (in relation to *UAH*) for the last 4 years

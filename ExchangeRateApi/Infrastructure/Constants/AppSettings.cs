@@ -12,6 +12,7 @@ namespace ExchangeRateApi.Infrastructure.Constants
 
         public const string WebhookUriPart = "api/message/update";
         public static string LoggerName => "LOGGER";
+        public static string TelegramBotSenderProperty => "From";
 
         private static string GetValue(string key)
         {

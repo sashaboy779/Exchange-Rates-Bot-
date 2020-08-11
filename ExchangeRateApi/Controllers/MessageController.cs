@@ -8,18 +8,21 @@ using Telegram.Bot;
 using ExchangeRateApi.Infrastructure.Bot;
 using ExchangeRateApi.Infrastructure.Constants;
 using ExchangeRateApi.Infrastructure.Bot.Commands;
+using ExchangeRateApi.Services.Interfaces;
 
 namespace ExchangeRateApi.Controllers
 {
     public class MessageController : ApiController
     {
+        private readonly ILocalizationService service;
         private readonly IBot bot;
         private readonly TelegramBotClient client;
 
-        public MessageController(IBot bot)
+        public MessageController(ILocalizationService localizationService, IBot exchangeRateBot)
         {
-            this.bot = bot;
-            client = bot.Client;
+            service = localizationService;
+            bot = exchangeRateBot;
+            client = exchangeRateBot.Client;
         }
 
         [Route(AppSettings.WebhookUriPart)] 
@@ -27,6 +30,7 @@ namespace ExchangeRateApi.Controllers
         {
             try
             {
+                await service.ApplyUserCultureAsync(GetUserId(update));
                 switch (update.Type)
                 {
                     case UpdateType.Message:
@@ -44,9 +48,19 @@ namespace ExchangeRateApi.Controllers
             return Ok();
         }
         
+        private int GetUserId(Update update)
+        {
+            var updateName = Enum.GetName(typeof(UpdateType), update.Type);
+            var property = update.GetType().GetProperty(updateName).GetValue(update);
+            var user = property.GetType().GetProperty(AppSettings.TelegramBotSenderProperty)
+                .GetValue(property) as User;
+
+            return user.Id;
+        }
+        
         private async Task HadleMessageAsync(Message message, TelegramBotClient client)
         {
-            Command command = null;
+            Command command;
 
             if (message.Text == null)
             {

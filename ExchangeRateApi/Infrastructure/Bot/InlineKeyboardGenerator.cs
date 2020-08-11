@@ -1,7 +1,11 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
+using System.Resources;
 using ExchangeRateApi.Models.User;
+using ExchangeRateApi.Resources;
 using Telegram.Bot.Types.ReplyMarkups;
 
 namespace ExchangeRateApi.Infrastructure.Bot
@@ -29,6 +33,29 @@ namespace ExchangeRateApi.Infrastructure.Bot
                 currentRow.Add(InlineKeyboardButton.WithCallbackData(buttonText));
                 currentButton++;
                 currentRow = TryAddNextRow(currentButton, 3, rows, currentRow);
+            }
+
+            return new InlineKeyboardMarkup(rows);
+        }
+        
+        public static InlineKeyboardMarkup CreateLanguagesKeyboard()
+        {
+            var manager = new ResourceManager(typeof(Languages));
+            var languages = manager.GetResourceSet(CultureInfo.CurrentUICulture, true, true);
+            
+            var rows = new List<IEnumerable<InlineKeyboardButton>>();
+            var currentRow = new List<InlineKeyboardButton>();
+            
+            rows.Add(currentRow);
+            var currentButton = 0;
+            
+            foreach (DictionaryEntry language in languages)
+            {
+                var languageName = language.Key.ToString();
+                currentRow.Add(InlineKeyboardButton.WithCallbackData(languageName));
+                currentButton++;
+
+                currentRow = TryAddNextRow(currentButton, 2, rows, currentRow);
             }
 
             return new InlineKeyboardMarkup(rows);

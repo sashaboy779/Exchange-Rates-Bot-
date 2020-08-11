@@ -10,5 +10,6 @@
         public static string Currencies => "/currencies";
         public static string Error => "/error";
         public static string IncorrectDateFormat => "/incorrectdateformat";
+        public static string UserSettings => "/settings";
     }
 }

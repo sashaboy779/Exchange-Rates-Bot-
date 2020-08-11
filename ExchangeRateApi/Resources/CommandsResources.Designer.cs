@@ -62,7 +62,8 @@ namespace ExchangeRateApi {
         
         /// <summary>
         ///   Looks up a localized string similar to 🏦 NBU - National Bank of Ukraine
-        ///🏦 PB - PrivatBank.
+        ///🏦 PB - PrivatBank
+        ///.
         /// </summary>
         public static string AboutBank {
             get {
@@ -146,6 +147,33 @@ namespace ExchangeRateApi {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to *{0}* - _{1}_.
+        /// </summary>
+        public static string FormattedCurrencyInfo {
+            get {
+                return ResourceManager.GetString("FormattedCurrencyInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Language successfully changed!.
+        /// </summary>
+        public static string LanguageChanged {
+            get {
+                return ResourceManager.GetString("LanguageChanged", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to What do you want to set up?.
+        /// </summary>
+        public static string MainSettings {
+            get {
+                return ResourceManager.GetString("MainSettings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Hmm... I don&apos;t understand this command.
         ///My full list of commands is here 👉 /help.
         /// </summary>
@@ -179,6 +207,24 @@ namespace ExchangeRateApi {
         public static string NotFoundExchangeRates {
             get {
                 return ResourceManager.GetString("NotFoundExchangeRates", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to It seems this feature is not implemented yet. I will let you know when it will be done 😊.
+        /// </summary>
+        public static string NotImplemented {
+            get {
+                return ResourceManager.GetString("NotImplemented", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This keyboard is too old. Try to use new one 😉.
+        /// </summary>
+        public static string OldKeyboard {
+            get {
+                return ResourceManager.GetString("OldKeyboard", resourceCulture);
             }
         }
         
@@ -219,11 +265,38 @@ namespace ExchangeRateApi {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Select language 🌎.
+        /// </summary>
+        public static string SelectLanguage {
+            get {
+                return ResourceManager.GetString("SelectLanguage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Select or remove currency from favourites.
         /// </summary>
         public static string SetCurrencyAbout {
             get {
                 return ResourceManager.GetString("SetCurrencyAbout", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 1. Language.
+        /// </summary>
+        public static string SettingsLanguage {
+            get {
+                return ResourceManager.GetString("SettingsLanguage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Soon.
+        /// </summary>
+        public static string SettingsSoon {
+            get {
+                return ResourceManager.GetString("SettingsSoon", resourceCulture);
             }
         }
         

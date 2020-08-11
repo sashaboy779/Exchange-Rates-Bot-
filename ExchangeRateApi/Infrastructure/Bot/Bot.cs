@@ -3,6 +3,7 @@ using System.Linq;
 using ExchangeRateApi.Infrastructure.Bot.Commands;
 using ExchangeRateApi.Infrastructure.Bot.Commands.Hidden;
 using ExchangeRateApi.Infrastructure.Bot.Commands.User;
+using ExchangeRateApi.Infrastructure.Bot.Commands.User.Settings;
 using ExchangeRateApi.Infrastructure.Bot.Handlers.CallbackQueries;
 using ExchangeRateApi.Infrastructure.Constants;
 using ExchangeRateApi.Services.Interfaces;
@@ -19,10 +20,11 @@ namespace ExchangeRateApi.Infrastructure.Bot
         private List<CallbackQueryHandler> callbackQueryHandlersList;
 
         public Bot(IUserService userService, IExchangeRateService exchangeRateService, 
-            ICurrenciesService currenciesService)
+            ICurrenciesService currenciesService,
+            ILocalizationService localizationService)
         {
             InitializeUserCommands(userService, currenciesService);
-            InitializeCallbackQueryHandlers(userService);
+            InitializeCallbackQueryHandlers(userService, localizationService);
             InitializeHiddenCommands(exchangeRateService);
 
             Client = new TelegramBotClient(AppSettings.BotKey);
@@ -76,15 +78,20 @@ namespace ExchangeRateApi.Infrastructure.Bot
                 new Tutorial(),
                 new SetCurrency(userService),
                 new Help(),
-                new Currencies(currenciesService)
+                new Currencies(currenciesService),
+                new UserSettings(),
+                new Language(),
+                new NotImplemented()
             };
         }
 
-        private void InitializeCallbackQueryHandlers(IUserService userService)
+        private void InitializeCallbackQueryHandlers(IUserService userService, 
+            ILocalizationService localizationService)
         {
             callbackQueryHandlersList = new List<CallbackQueryHandler>
             {
-                new CurrencyKeyboardHandler(userService)
+                new CurrencyKeyboardHandler(userService),
+                new LanguageKeyboardHandler(localizationService)
             };
         }
 
