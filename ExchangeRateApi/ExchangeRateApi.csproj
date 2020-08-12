@@ -188,6 +188,7 @@
     <Compile Include="Infrastructure\Bot\Commands\User\Settings\Language.cs" />
     <Compile Include="Infrastructure\Bot\Commands\User\Settings\NotImplemented.cs" />
     <Compile Include="Infrastructure\Bot\Commands\User\Settings\UserSettings.cs" />
+    <Compile Include="Infrastructure\Bot\Commands\User\Today.cs" />
     <Compile Include="Infrastructure\Bot\Commands\User\Tutorial.cs" />
     <Compile Include="Infrastructure\Bot\Commands\User\Start.cs" />
     <Compile Include="Infrastructure\Bot\Handlers\CallbackQueries\CallbackQueryHandler.cs" />

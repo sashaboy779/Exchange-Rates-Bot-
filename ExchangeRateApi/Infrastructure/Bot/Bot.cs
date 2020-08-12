@@ -21,9 +21,10 @@ namespace ExchangeRateApi.Infrastructure.Bot
 
         public Bot(IUserService userService, IExchangeRateService exchangeRateService, 
             ICurrenciesService currenciesService,
-            ILocalizationService localizationService)
+            ILocalizationService localizationService,
+            Rate rateCommand)
         {
-            InitializeUserCommands(userService, currenciesService);
+            InitializeUserCommands(userService, currenciesService, rateCommand);
             InitializeCallbackQueryHandlers(userService, localizationService);
             InitializeHiddenCommands(exchangeRateService);
 
@@ -70,7 +71,8 @@ namespace ExchangeRateApi.Infrastructure.Bot
             _ = client.SetWebhookAsync(webhook, maxConnections: 40);
         }
 
-        private void InitializeUserCommands(IUserService userService, ICurrenciesService currenciesService)
+        private void InitializeUserCommands(IUserService userService, ICurrenciesService currenciesService,
+            Rate rateCommand)
         {
             userCommands = new List<Command>
             {
@@ -81,7 +83,8 @@ namespace ExchangeRateApi.Infrastructure.Bot
                 new Currencies(currenciesService),
                 new UserSettings(),
                 new Language(),
-                new NotImplemented()
+                new NotImplemented(),
+                new Today(rateCommand)
             };
         }
 

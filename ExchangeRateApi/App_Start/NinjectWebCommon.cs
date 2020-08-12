@@ -1,5 +1,6 @@
 ﻿using System.Runtime.Caching;
 using ExchangeRateApi.Infrastructure.Bot;
+using ExchangeRateApi.Infrastructure.Bot.Commands.Hidden;
 using ExchangeRateApi.Modules;
 
 [assembly: WebActivatorEx.PreApplicationStartMethod(typeof(ExchangeRateApi.NinjectWebCommon), "Start")]
@@ -69,6 +70,7 @@ namespace ExchangeRateApi
         {
             kernel.Bind<IBot>().To<Bot>().InRequestScope();
             kernel.Bind<ObjectCache>().ToConstant(MemoryCache.Default);
+            kernel.Bind<Rate>().ToSelf();
 
             kernel.Load<RepositoryModule>();
             kernel.Load<ServiceModule>();
