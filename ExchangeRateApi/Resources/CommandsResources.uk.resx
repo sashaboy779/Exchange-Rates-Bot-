@@ -135,7 +135,9 @@
 /tutorial - Інструкція, як зі мною працювати
 /currencies - Всі валюти, що я підтримую
 /setcurrency - Обрати валюти для перегляду
-/settings - Персональні налаштування бота</value>
+/settings - Персональні налаштування бота
+/today - Отримати сьогоднішній курс валют
+/yesterday - Отримати вчорашній курс валют</value>
   </data>
   <data name="CurrencyAdded" xml:space="preserve">
     <value>{0} додано до вподобань</value>

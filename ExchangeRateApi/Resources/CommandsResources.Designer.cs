@@ -96,7 +96,9 @@ namespace ExchangeRateApi {
         ////tutorial - Instructions on how to work with me
         ////currencies - All currencies that I support
         ////setcurrency - Select favorite currencies
-        ////settings - Personal bot settings.
+        ////settings - Personal bot settings
+        ////today - Get exchange rate for today
+        ////yesterday - Get exchange rate for yesterday.
         /// </summary>
         public static string CommandsList {
             get {

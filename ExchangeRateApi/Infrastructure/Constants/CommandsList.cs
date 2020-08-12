@@ -12,5 +12,6 @@
         public static string IncorrectDateFormat => "/incorrectdateformat";
         public static string UserSettings => "/settings";
         public static string Today => "/today";
+        public static string Yesterday => "/yesterday";
     }
 }

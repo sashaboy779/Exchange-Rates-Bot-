@@ -191,6 +191,7 @@
     <Compile Include="Infrastructure\Bot\Commands\User\Today.cs" />
     <Compile Include="Infrastructure\Bot\Commands\User\Tutorial.cs" />
     <Compile Include="Infrastructure\Bot\Commands\User\Start.cs" />
+    <Compile Include="Infrastructure\Bot\Commands\User\Yesterday.cs" />
     <Compile Include="Infrastructure\Bot\Handlers\CallbackQueries\CallbackQueryHandler.cs" />
     <Compile Include="Infrastructure\Bot\Handlers\CallbackQueries\CurrencyKeyboardHandler.cs" />
     <Compile Include="Infrastructure\Bot\Handlers\CallbackQueries\LanguageKeyboardHandler.cs" />

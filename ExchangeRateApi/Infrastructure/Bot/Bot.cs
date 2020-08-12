@@ -84,7 +84,8 @@ namespace ExchangeRateApi.Infrastructure.Bot
                 new UserSettings(),
                 new Language(),
                 new NotImplemented(),
-                new Today(rateCommand)
+                new Today(rateCommand),
+                new Yesterday(rateCommand)
             };
         }
 
