@@ -95,7 +95,8 @@ namespace ExchangeRateApi.Infrastructure.Bot
             callbackQueryHandlersList = new List<CallbackQueryHandler>
             {
                 new CurrencyKeyboardHandler(userService),
-                new LanguageKeyboardHandler(localizationService)
+                new LanguageKeyboardHandler(localizationService),
+                new OldKeyboardHandler()
             };
         }
 

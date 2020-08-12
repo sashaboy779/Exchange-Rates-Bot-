@@ -13,5 +13,7 @@
         public static string UserSettings => "/settings";
         public static string Today => "/today";
         public static string Yesterday => "/yesterday";
+        public static string OldKeyboard => "/oldkeyboard";
+
     }
 }

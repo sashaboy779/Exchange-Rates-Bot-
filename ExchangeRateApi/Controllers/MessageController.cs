@@ -81,8 +81,15 @@ namespace ExchangeRateApi.Controllers
         private async Task HandleCallbackQueryAsync(Update update, TelegramBotClient client)
         {
             var handler = bot.GetCallbackQueryHandler(update.CallbackQuery.Message.Text);
-            await handler.Handle(client, update.CallbackQuery);
-            // TODO Add old keyboard handler
+
+            if (handler == null)
+            {
+                await bot.GetCallbackQueryHandler(CommandsList.OldKeyboard).Handle(client, update.CallbackQuery);
+            }
+            else
+            {
+                await handler.Handle(client, update.CallbackQuery);
+            }
         }
     }
 }

@@ -195,6 +195,7 @@
     <Compile Include="Infrastructure\Bot\Handlers\CallbackQueries\CallbackQueryHandler.cs" />
     <Compile Include="Infrastructure\Bot\Handlers\CallbackQueries\CurrencyKeyboardHandler.cs" />
     <Compile Include="Infrastructure\Bot\Handlers\CallbackQueries\LanguageKeyboardHandler.cs" />
+    <Compile Include="Infrastructure\Bot\Handlers\CallbackQueries\OldKeyboardHandler.cs" />
     <Compile Include="Infrastructure\Bot\Handlers\Handler.cs" />
     <Compile Include="Infrastructure\Bot\IBot.cs" />
     <Compile Include="Infrastructure\Bot\InlineKeyboardGenerator.cs" />
