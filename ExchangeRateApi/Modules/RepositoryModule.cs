@@ -19,8 +19,15 @@ namespace ExchangeRateApi.Modules
                 .InRequestScope();
             
             Kernel.Bind<IGenericRepository<User>>().To<GenericRepository<User>>()
+                .WhenInjectedExactlyInto<CachedUserRepository>()
                 .InRequestScope();
             Kernel.Bind<IGenericRepository<UserCurrency>>().To<GenericRepository<UserCurrency>>()
+                .WhenInjectedExactlyInto<CachedUserCurrencyRepository>()
+                .InRequestScope();
+
+            Kernel.Bind<IGenericRepository<User>>().To<CachedUserRepository>()
+                .InRequestScope();
+            Kernel.Bind<IGenericRepository<UserCurrency>>().To<CachedUserCurrencyRepository>()
                 .InRequestScope();
         }
     }

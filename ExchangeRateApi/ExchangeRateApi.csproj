@@ -158,6 +158,9 @@
     <Compile Include="Controllers\MessageController.cs" />
     <Compile Include="DataAccess\DatabaseInitializer.cs" />
     <Compile Include="DataAccess\ExchangeRateBotContext.cs" />
+    <Compile Include="DataAccess\Repository\CachedRepository.cs" />
+    <Compile Include="DataAccess\Repository\CachedUserCurrencyRepository.cs" />
+    <Compile Include="DataAccess\Repository\CachedUserRepository.cs" />
     <Compile Include="DataAccess\Repository\GenericRepository.cs" />
     <Compile Include="DataAccess\Repository\IGenericRepository.cs" />
     <Compile Include="DataAccess\UnitOfWork\IUnitOfWork.cs" />
@@ -188,6 +191,7 @@
     <Compile Include="Infrastructure\Bot\IBot.cs" />
     <Compile Include="Infrastructure\Bot\InlineKeyboardGenerator.cs" />
     <Compile Include="Infrastructure\Constants\AppSettings.cs" />
+    <Compile Include="Infrastructure\Constants\CacheSettings.cs" />
     <Compile Include="Infrastructure\Constants\CommandsList.cs" />
     <Compile Include="Infrastructure\Constants\ServiceSettings.cs" />
     <Compile Include="Infrastructure\Exceptions\ExchangeRateNotFoundException.cs" />
