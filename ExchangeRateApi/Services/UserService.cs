@@ -48,7 +48,8 @@ namespace ExchangeRateApi.Services
 
             if (userCurrency == null)
             {
-                var currency = await unitOfWork.UserCurrencyRepository.SingleOrDefaultAsync(x => x.Currency == pickedCurrency);
+                var currency = await unitOfWork.UserCurrencyRepository
+                    .SingleOrDefaultAsync(x => x.Currency == pickedCurrency);
                 user.Currencies.Add(currency);
             }
             else
