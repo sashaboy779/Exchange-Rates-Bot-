@@ -1,8 +1,12 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using ExchangeRateApi.Infrastructure.Bot.Commands;
+using ExchangeRateApi.Infrastructure.Bot.Commands.Hidden;
+using ExchangeRateApi.Infrastructure.Bot.Commands.User;
+using ExchangeRateApi.Infrastructure.Bot.Commands.User.Settings;
+using ExchangeRateApi.Infrastructure.Bot.Handlers.CallbackQueries;
 using ExchangeRateApi.Infrastructure.Constants;
-using ExchangeRateApi.Models.TelegramBot.Commands;
-using ExchangeRateApi.Models.TelegramBot.Handlers.CallbackQuery;
+using ExchangeRateApi.Services.Interfaces;
 using Telegram.Bot;
 
 namespace ExchangeRateApi.Infrastructure.Bot
@@ -15,11 +19,14 @@ namespace ExchangeRateApi.Infrastructure.Bot
         private List<Command> hiddenCommands;
         private List<CallbackQueryHandler> callbackQueryHandlersList;
 
-        public Bot()
+        public Bot(IUserService userService, IExchangeRateService exchangeRateService, 
+            ICurrenciesService currenciesService,
+            ILocalizationService localizationService,
+            Rate rateCommand)
         {
-            InitializeUserCommands();
-            InitializeCallbackQueryHandlers();
-            InitializeHiddenCommands();
+            InitializeUserCommands(userService, currenciesService, rateCommand);
+            InitializeCallbackQueryHandlers(userService, localizationService);
+            InitializeHiddenCommands(exchangeRateService);
 
             Client = new TelegramBotClient(AppSettings.BotKey);
         }
@@ -28,7 +35,21 @@ namespace ExchangeRateApi.Infrastructure.Bot
         {
             Command command = null;
 
-            // TODO Add logic
+            if (identifier != "/")
+            {
+                command = userCommands.SingleOrDefault(x => x.Identifier == identifier);
+            }
+            if (command == null)
+            {
+                if (identifier.StartsWith("/"))
+                {
+                    command = hiddenCommands.Single(x => x.Identifier == CommandsList.Error);
+                }
+                else
+                {
+                    command = hiddenCommands.Single(x => x.Identifier == CommandsList.IncorrectDateFormat);
+                }
+            }
 
             return command;
         }
@@ -50,27 +71,42 @@ namespace ExchangeRateApi.Infrastructure.Bot
             _ = client.SetWebhookAsync(webhook, maxConnections: 40);
         }
 
-        private void InitializeUserCommands()
+        private void InitializeUserCommands(IUserService userService, ICurrenciesService currenciesService,
+            Rate rateCommand)
         {
             userCommands = new List<Command>
             {
-                // add commands
+                new Start(userService),
+                new Tutorial(),
+                new SetCurrency(userService),
+                new Help(),
+                new Currencies(currenciesService),
+                new UserSettings(),
+                new Language(),
+                new NotImplemented(),
+                new Today(rateCommand),
+                new Yesterday(rateCommand)
             };
         }
 
-        private void InitializeCallbackQueryHandlers()
+        private void InitializeCallbackQueryHandlers(IUserService userService, 
+            ILocalizationService localizationService)
         {
             callbackQueryHandlersList = new List<CallbackQueryHandler>
             {
-                // add callback query handlers
+                new CurrencyKeyboardHandler(userService),
+                new LanguageKeyboardHandler(localizationService),
+                new OldKeyboardHandler()
             };
         }
 
-        private void InitializeHiddenCommands()
+        private void InitializeHiddenCommands(IExchangeRateService exchangeRateService)
         {
             hiddenCommands = new List<Command>
             {
-                // add hidden commands
+                new Rate(exchangeRateService),
+                new ErrorCommand(),
+                new IncorrectDateFormat()
             };
         }
     }

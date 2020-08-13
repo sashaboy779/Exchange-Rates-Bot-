@@ -1,5 +1,6 @@
 ﻿using System.Runtime.Caching;
 using ExchangeRateApi.Infrastructure.Bot;
+using ExchangeRateApi.Infrastructure.Bot.Commands.Hidden;
 using ExchangeRateApi.Modules;
 
 [assembly: WebActivatorEx.PreApplicationStartMethod(typeof(ExchangeRateApi.NinjectWebCommon), "Start")]
@@ -9,7 +10,7 @@ namespace ExchangeRateApi
 {
     using System;
     using System.Web;
-
+    using System.Web.Http;
     using Microsoft.Web.Infrastructure.DynamicModuleHelper;
 
     using Ninject;
@@ -50,6 +51,8 @@ namespace ExchangeRateApi
                 kernel.Bind<Func<IKernel>>().ToMethod(ctx => () => new Bootstrapper().Kernel);
                 kernel.Bind<IHttpModule>().To<HttpApplicationInitializationHttpModule>();
                 RegisterServices(kernel);
+
+                GlobalConfiguration.Configuration.DependencyResolver = new NinjectResolver(kernel);
                 return kernel;
             }
             catch
@@ -67,6 +70,7 @@ namespace ExchangeRateApi
         {
             kernel.Bind<IBot>().To<Bot>().InRequestScope();
             kernel.Bind<ObjectCache>().ToConstant(MemoryCache.Default);
+            kernel.Bind<Rate>().ToSelf();
 
             kernel.Load<RepositoryModule>();
             kernel.Load<ServiceModule>();

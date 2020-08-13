@@ -1,6 +1,5 @@
 ﻿using System.Data.Entity;
 using ExchangeRateApi.Infrastructure.Constants;
-using ExchangeRateApi.Migrations;
 using ExchangeRateApi.Models.User;
 
 namespace ExchangeRateApi.DataAccess
@@ -16,7 +15,7 @@ namespace ExchangeRateApi.DataAccess
 
         public ExchangeRateBotContext(string connectionStringName) : base(connectionStringName)
         {
-            Database.SetInitializer(new MigrateDatabaseToLatestVersion<ExchangeRateBotContext, Configuration>());
+            Database.SetInitializer(new DatabaseInitializer());
         }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

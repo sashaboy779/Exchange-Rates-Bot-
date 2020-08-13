@@ -17,7 +17,7 @@
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
-    <IISExpressSSLPort />
+    <IISExpressSSLPort>44349</IISExpressSSLPort>
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
@@ -162,11 +162,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Start\NinjectResolver.cs" />
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MessageController.cs" />
+    <Compile Include="DataAccess\DatabaseInitializer.cs" />
     <Compile Include="DataAccess\ExchangeRateBotContext.cs" />
     <Compile Include="DataAccess\Repository\GenericRepository.cs" />
     <Compile Include="DataAccess\Repository\IGenericRepository.cs" />
@@ -176,8 +178,29 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Infrastructure\Bot\Bot.cs" />
+    <Compile Include="Infrastructure\Bot\Commands\Command.cs" />
+    <Compile Include="Infrastructure\Bot\Commands\Hidden\ErrorCommand.cs" />
+    <Compile Include="Infrastructure\Bot\Commands\Hidden\IncorrectDateFormat.cs" />
+    <Compile Include="Infrastructure\Bot\Commands\Hidden\Rate.cs" />
+    <Compile Include="Infrastructure\Bot\Commands\User\Currencies.cs" />
+    <Compile Include="Infrastructure\Bot\Commands\User\Help.cs" />
+    <Compile Include="Infrastructure\Bot\Commands\User\SetCurrency.cs" />
+    <Compile Include="Infrastructure\Bot\Commands\User\Settings\Language.cs" />
+    <Compile Include="Infrastructure\Bot\Commands\User\Settings\NotImplemented.cs" />
+    <Compile Include="Infrastructure\Bot\Commands\User\Settings\UserSettings.cs" />
+    <Compile Include="Infrastructure\Bot\Commands\User\Today.cs" />
+    <Compile Include="Infrastructure\Bot\Commands\User\Tutorial.cs" />
+    <Compile Include="Infrastructure\Bot\Commands\User\Start.cs" />
+    <Compile Include="Infrastructure\Bot\Commands\User\Yesterday.cs" />
+    <Compile Include="Infrastructure\Bot\Handlers\CallbackQueries\CallbackQueryHandler.cs" />
+    <Compile Include="Infrastructure\Bot\Handlers\CallbackQueries\CurrencyKeyboardHandler.cs" />
+    <Compile Include="Infrastructure\Bot\Handlers\CallbackQueries\LanguageKeyboardHandler.cs" />
+    <Compile Include="Infrastructure\Bot\Handlers\CallbackQueries\OldKeyboardHandler.cs" />
+    <Compile Include="Infrastructure\Bot\Handlers\Handler.cs" />
     <Compile Include="Infrastructure\Bot\IBot.cs" />
+    <Compile Include="Infrastructure\Bot\InlineKeyboardGenerator.cs" />
     <Compile Include="Infrastructure\Constants\AppSettings.cs" />
+    <Compile Include="Infrastructure\Constants\CommandsList.cs" />
     <Compile Include="Infrastructure\Constants\ServiceSettings.cs" />
     <Compile Include="Infrastructure\Exceptions\ExchangeRateNotFoundException.cs" />
     <Compile Include="Infrastructure\Exceptions\GlobalExceptionHandler.cs" />
@@ -191,10 +214,7 @@
     <Compile Include="Models\PrivatBankApi\CurrencyModel.cs" />
     <Compile Include="Models\PrivatBankApi\ExchangeRate.cs" />
     <Compile Include="Models\PrivatBankApi\ExchangeRateModel.cs" />
-    <Compile Include="Models\TelegramBot\Commands\Command.cs" />
     <Compile Include="Models\TelegramBot\FilteredExchangeRates.cs" />
-    <Compile Include="Models\TelegramBot\Handlers\CallbackQuery\CallbackQueryHandler.cs" />
-    <Compile Include="Models\TelegramBot\Handlers\Handler.cs" />
     <Compile Include="Models\User\Currencies.cs" />
     <Compile Include="Models\User\User.cs" />
     <Compile Include="Models\User\UserCurrency.cs" />
@@ -225,6 +245,16 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Messages.uk.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\CommandsResources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CommandsResources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\CommandsResources.uk.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CommandsResources.uk.resx</DependentUpon>
     </Compile>
     <Compile Include="Services\ApiService.cs" />
     <Compile Include="Services\CurrenciesService.cs" />
@@ -279,10 +309,19 @@
       <LastGenOutput>Messages.uk.Designer.cs</LastGenOutput>
       <CustomToolNamespace>ExchangeRateApi.Resources</CustomToolNamespace>
     </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CommandsResources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>CommandsResources.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>ExchangeRateApi</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\CommandsResources.uk.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>CommandsResources.uk.Designer.cs</LastGenOutput>
+      <CustomToolNamespace>ExchangeRateApi</CustomToolNamespace>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Models\TelegramBot\Commands\Hidden\" />
-    <Folder Include="Models\TelegramBot\Commands\User\" />
+    <Folder Include="Infrastructure\Bot\Commands\Hidden\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -301,7 +340,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>5000</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:5000/</IISUrl>
+          <IISUrl>https://localhost:44349/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

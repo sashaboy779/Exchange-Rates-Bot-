@@ -2,7 +2,7 @@
 using Telegram.Bot;
 using Telegram.Bot.Types;
 
-namespace ExchangeRateApi.Models.TelegramBot.Commands
+namespace ExchangeRateApi.Infrastructure.Bot.Commands
 {
     public abstract class Command
     {

@@ -82,14 +82,14 @@ namespace ExchangeRateApiTest.ServiceTests
             config.MockCache.Setup(x => x.Set(It.IsAny<string>(), It.IsAny<object>(),
                 It.IsAny<CacheItemPolicy>(), It.IsAny<string>()));
 
-            config.MockApi.Setup(x => x.MakeApiCallAsync(It.IsAny<string>())).ReturnsAsync(config.
+            config.MockApi.Setup(x => x.MakeApiCall(It.IsAny<string>())).Returns(config.
                  MessageReturnedByApi);
         }
 
         private void VerifyLoadExchangeRate(Times invocationApi, Times invocationSet)
         {
             mockCache.Verify(x => x[fixture.DateString], Times.Once);
-            mockApiService.Verify(x => x.MakeApiCallAsync(It.IsAny<string>()), invocationApi);
+            mockApiService.Verify(x => x.MakeApiCall(It.IsAny<string>()), invocationApi);
             mockCache.Verify(x => x.Set(fixture.DateString, fixture.ExchangeRateModel.ExchangeRate,
                 It.IsAny<CacheItemPolicy>(), null), invocationSet);
         }
