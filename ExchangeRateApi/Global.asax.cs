@@ -3,6 +3,7 @@ using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Routing;
 using ExchangeRateApi.Infrastructure;
+using ExchangeRateApi.Infrastructure.Bot;
 
 namespace ExchangeRateApi
 {
@@ -14,7 +15,7 @@ namespace ExchangeRateApi
             GlobalConfiguration.Configure(WebApiConfig.Register);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             
-            //Bot.SetWebhook();
+            Bot.SetWebhook();
         }
         
         protected void Application_Error()
