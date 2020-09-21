@@ -21,6 +21,9 @@ Before you begin, ensure you have met the following requirements:
 * You have installed [Visual Studio](https://visualstudio.microsoft.com/)
 * You have installed [SQL Server](https://www.microsoft.com/en-us/sql-server/sql-server-downloads)
 
+## Tech Stack
+ASP.NET, Microsoft SQL Server
+
 ## Usage
 ### 1. Create a new bot by **BotFather**
 1. In the Telegram find `@BotFather`
